@@ -35,9 +35,7 @@
 #' @examples
 #' \dontrun{
 #' # Load required packages
-#' library(package = "dplyr") # Helps managing data tasks
-#' library(package = "purrr") # Provides iteration functions
-#' library(package = "pemr")  # Reads monitor data
+#' library(package = "pemr")
 #'
 #' # Define files and types. This can be any data frame, so composing data in a
 #' # spreadsheet and reading it in works too
