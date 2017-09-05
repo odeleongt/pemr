@@ -244,8 +244,8 @@ read_em_ecm <- function(file, skip = 24, ...){
       ...
     ) %>%
       mutate(
-        date1 = dmy(Date),
-        date2 = mdy(Date),
+        date1 = mdy(Date),
+        date2 = dmy(Date),
         date3 = ymd(Date),
         date = if_else(
           condition = rep(all(is.na(date1)), n()),
@@ -259,7 +259,7 @@ read_em_ecm <- function(file, skip = 24, ...){
         ),
         date_time = ymd_hms(paste(date, Time))
       ) %>%
-      select(date = date, date_time, everything())
+      select(date = date, date_time, everything(), -matches("date[0-9]"))
   }
 }
 
