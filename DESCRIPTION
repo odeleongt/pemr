@@ -4,7 +4,7 @@ Version: 0.1.0
 Description: Read and manage data from files collected using a variety of
     personal environmental monitors.
 Authors@R: person("Oscar", "de León", email = "odeleon@ces.uvg.edu.gt", role = c("aut", "cre"))
-Date: 2017-08-16
+Date: 2017-09-05
 Depends: R (>= 3.0.2)
 Imports:
     magrittr (>= 1.5.0),
