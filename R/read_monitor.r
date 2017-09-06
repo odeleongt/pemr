@@ -211,7 +211,7 @@ read_em_patsp <- function(file, ...){
     skip <- get_start(file, pattern = "^dateTime", n = 40)
 
     # Read data
-    readr::read_csv(file, skip = 30, col_types = pats_columns, ...) %>%
+    readr::read_csv(file, skip = skip, col_types = pats_columns, ...) %>%
       mutate(
         date = date(dateTime)
       ) %>%
