@@ -157,7 +157,7 @@ data_em_upas <- function(.data, type, vars){
     # Keep monitor type, any requested variables, and data variables
     select(
       !!!type, !!!vars,
-      date_time, concentration, flow = volflow
+      date_time, concentration = atmoRho, flow = volflow
     )
 }
 
