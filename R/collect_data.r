@@ -73,26 +73,19 @@ collect_data <- function(.data, type, data_col, ...){
       ) %>%
       bind_rows()
   } else {
-    # Filter monitor types
-    type <- ifelse(
-      test = monitor_types %in% c("ecm", "ecm-raw", "patsp", "upas"),
-      yes = monitor_types,
-      no = "unknown"
-    )
-
     # Pick function
     data_em_ <- switch(
-      type,
+      monitor_types,
       "ecm-raw" = data_em_ecm_raw,
       "ecm" = data_em_ecm,
       "patsp" = data_em_patsp,
       "upas" = data_em_upas,
       "sums" = data_em_na,
-      "unknown" = data_em_na
+      data_em_na
     )
     monitor_data <- .data %>%
       unnest(!!quo_data_col) %>%
-      data_em_(.data = , type = quo_type, vars = vars)
+      data_em_(.data = ., type = quo_type, vars = vars)
   }
 
   return(monitor_data)

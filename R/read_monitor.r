@@ -54,9 +54,6 @@ read_monitor <- function(file, type, ...){
     if(!file.exists(file)) stop("File not found\n", file, "\n\n", call. = FALSE)
   }
 
-  # Filter monitor types
-  if(!type %in% c("ecm", "ecm-raw", "patsp", "upas", "sums")) type  <- "unknown"
-
   # Pick function
   read_em_ <- switch(
     type,
@@ -65,7 +62,7 @@ read_monitor <- function(file, type, ...){
     "patsp" = read_em_patsp,
     "upas" = read_em_upas,
     "sums" = read_em_sums,
-    "unknown" = read_em_unknown
+    read_em_unknown
   )
 
   return( suppressMessages( suppressWarnings( read_em_(file, ...) ) ) )
