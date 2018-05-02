@@ -235,6 +235,9 @@ read_em_ecm <- function(file, skip = 24, ...){
       what = "character", sep = ",", skip = skip, nlines = 1
     )
 
+    # name empty columns
+    column_names[column_names == ""] <- "empty"
+
     # Read contents
     readr::read_csv(
       file, skip = skip + 2, col_names = column_names, col_types = ecm_columns,
@@ -256,7 +259,10 @@ read_em_ecm <- function(file, skip = 24, ...){
         ),
         date_time = ymd_hms(paste(date, Time))
       ) %>%
-      select(date = date, date_time, everything(), -matches("date[0-9]"))
+      select(
+        date = date, date_time, everything(),
+        -matches("date[0-9]"), -matches("^empty")
+      )
   }
 }
 
@@ -282,6 +288,9 @@ read_em_sums <- function(file, skip = 19, ...){
       what = "character", sep = ",", skip = skip, nlines = 1
     )
 
+    # name empty columns
+    column_names[column_names == ""] <- "empty"
+
     # Read contents
     readr::read_csv(
       file, skip = skip + 1, col_names = column_names, col_types = sums_columns,
@@ -290,7 +299,10 @@ read_em_sums <- function(file, skip = 19, ...){
       mutate(
         date = date(`Date/Time`)
       ) %>%
-      select(date, date_time = `Date/Time`, everything())
+      select(
+        date, date_time = `Date/Time`, everything(),
+        -matches("^empty")
+      )
   }
 }
 
