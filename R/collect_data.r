@@ -152,7 +152,7 @@ ecm_vars <- c(
   relative_humidity = "RH",
   battery = "Battery",
   inlet_pressure = "Inlet Press",
-  outlet_pressure = "Orifice Press",
+  orifice_pressure = "Orifice Press",
   flow = "Flow",
   x_axis = "X-axis",
   y_axis = "Y-axis",
