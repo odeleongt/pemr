@@ -10,7 +10,8 @@ collect_data(.data, type, data_col, ...)
 \item{.data}{Dataframe containing a nested column with the data from each
 file. Ussually a product of iterating `read_monitor` using `purrr::map2`.}
 
-\item{type}{Type of monitor with which the data was recorded.}
+\item{type}{Type of monitor with which the data was recorded.
+Use "ecm-full" to get all variable available in the ECM files.}
 
 \item{data_col}{Column containing the nested data.}
 

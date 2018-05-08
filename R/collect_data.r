@@ -27,6 +27,7 @@
 #' @param .data Dataframe containing a nested column with the data from each
 #'   file. Ussually a product of iterating `read_monitor` using `purrr::map2`.
 #' @param type Type of monitor with which the data was recorded.
+#' Use "ecm-full" to get all variable available in the ECM files.
 #' @param data_col Column containing the nested data.
 #' @param ... Additional columns present in `.data` to preserve in the output.
 #'   Useful to define the key to identify each data set.
@@ -78,6 +79,7 @@ collect_data <- function(.data, type, data_col, ...){
       monitor_types,
       "ecm-raw" = data_em_ecm_raw,
       "ecm" = data_em_ecm,
+      "ecm-full" = data_em_ecm_full,
       "patsp" = data_em_patsp,
       "upas" = data_em_upas,
       "sums" = data_em_na,
@@ -138,6 +140,34 @@ data_em_ecm <- function(.data, type, vars){
       !!!type, !!!vars,
       date_time, concentration = `RH-Corrected Nephelometer`, flow = Flow
     )
+}
+
+# Rename all ecm variables
+ecm_vars <- c(
+  date = "Date",
+  time = "Time",
+  concentration = "RH-Corrected Nephelometer",
+  conc_hr = "RH-Corrected Nephelometer HR",
+  temperature = "Temp",
+  relative_humidity = "RH",
+  battery = "Battery",
+  inlet_pressure = "Inlet Press",
+  outlet_pressure = "Orifice Press",
+  flow = "Flow",
+  x_axis = "X-axis",
+  y_axis = "Y-axis",
+  z_axis = "Z-axis",
+  accelerometer = "Vector Sum Composite",
+  shutdown = "ShutDownReason",
+  wc = "Wearing Compliance",
+  vwc = "ValidityWearingCompliance validation"
+)
+
+# ecm-processed-full
+data_em_ecm_full <- function(.data, type, vars){
+  .data %>%
+    # Keep monitor type, any requested variables, and data variables
+    select(!!!type, !!!vars, !!!ecm_vars)
 }
 
 # upas
