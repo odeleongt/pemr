@@ -10,6 +10,10 @@ tibble::data_frame
 #' @export
 dplyr::mutate
 
+#' @importFrom tidyr unnest
+#' @export
+tidyr::unnest
+
 #' @importFrom purrr map2
 #' @export
 purrr::map2

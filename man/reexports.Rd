@@ -9,6 +9,8 @@
 \alias{reexports}
 \alias{mutate}
 \alias{reexports}
+\alias{unnest}
+\alias{reexports}
 \alias{map2}
 \title{Objects exported from other packages}
 \keyword{internal}
@@ -24,5 +26,7 @@ below to see their documentation.
   \item{purrr}{\code{\link[purrr]{map2}}}
 
   \item{tibble}{\code{\link[tibble]{data_frame}}}
+
+  \item{tidyr}{\code{\link[tidyr]{unnest}}}
 }}
 
