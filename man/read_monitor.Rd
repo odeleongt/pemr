@@ -15,6 +15,8 @@ read_monitor(file, type, ...)
   * "patsp": data from PATS+ monitors.
   * "upas": data from UPAS monitors.
   * "ecm": data from ECM.
+  * "ecm-full": same as "ecm". Use this type to extract more variables when
+    using \code{\link{collect_data}}
   * "ecm-raw": raw files from ecm will usually be located among the files,
   this will return an empty data frame.
   * "sums": reading data from SUMs is supported, but data is not used.
