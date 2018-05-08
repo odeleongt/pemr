@@ -75,30 +75,6 @@ read_monitor <- function(file, type, ...){
 
 
 #------------------------------------------------------------------------------*
-# Define helper funtions ----
-#------------------------------------------------------------------------------*
-
-# Get start line
-get_start <- function(file, pattern, n){
-  start <- readLines(con = file, n = n) %>%
-    grep(pattern, .) %>%
-    first()
-  start - 1
-}
-
-# Set NA row
-na_row <- function(column_spec){
-  column_spec$cols %>%
-    names() %>%
-    set_names() %>%
-    lapply( function(...) NA ) %>%
-    as_data_frame()
-}
-
-
-
-
-#------------------------------------------------------------------------------*
 # Define column types ----
 #------------------------------------------------------------------------------*
 
