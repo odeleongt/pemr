@@ -3,7 +3,7 @@ Title: Use Data From Personal Environmental Monitors
 Version: 0.1.0
 Description: Read and manage data from files collected using a variety of
     personal environmental monitors.
-Authors@R: person("Oscar", "de León", email = "odeleon@ces.uvg.edu.gt", role = c("aut", "cre"))
+Authors@R: person("Oscar", "de León", email = "ofdeleon@uvg.edu.gt", role = c("aut", "cre"))
 Date: 2026-03-01
 Depends: R (>= 4.1.0)
 Imports:
